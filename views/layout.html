@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>JK Internet Center DataAPI</title>
+	<link rel="stylesheet" href="/css/base.css" />
+	<link rel="stylesheet" href="/css/dataapi.css" />
+</head>
+<body>
+	<div class="page mb20 clearfix bc">
+		<div class="page-left fl pr">
+			<div class="main-nav">
+				<div class="page-title unselectable">
+					<h1 class="tc f20">JK Internet Center DataAPI</h1>
+				</div>
+				<div class="nav-box">
+					<div class="nav-list pb30">
+						<div class="project-list">
+							<% for(var i=0;i<projects.length;i++) {%>
+							<div class="p-parent mb20">
+								<p data-pId="<%-projects[i].id %>"  class="p-title unselectable t-el"><%-projects[i].name%></p>
+								<ul class="p-child">
+								<% if( projects[i].flag){%>
+								<% for(var j=0;j<projects[i].application.length;j++) {%>
+									<li data-aId="<%-projects[i].application[j].id %>" class="a-title unselectable"><a href="javascript:void(0)"><%-projects[i].application[j].name %></a></li>
+								<% } %>
+								<% } %>
+								</ul>
+							</div>
+							<% } %>
+						</div>
+						<a class="btn ml50" id="add" href="javascript:void(0)">新增项目</a>
+						<p class="ts mt50 f12 tc">点击鼠标右键可在项目下创建应用</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="content mt20 fr">
+			<%-body %>
+		</div>
+	</div>
+	<script type="text/javascript" src="/js/jquery.min.js"></script>
+	<script type="text/javascript" src="/js/msgBox.js"></script>
+	<script type="text/javascript" src="/js/dataapi.js"></script>
+</body>
+</html>
